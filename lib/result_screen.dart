@@ -15,10 +15,8 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Check if the user score is greater than the best score
     int updatedBestScore = userScore > bestScore ? userScore : bestScore;
 
-    // Update the best score in SharedPreferences
     _updateBestScore(updatedBestScore);
 
     return Scaffold(
@@ -28,7 +26,7 @@ class ResultScreen extends StatelessWidget {
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(16.0), // Add padding
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -36,16 +34,16 @@ class ResultScreen extends StatelessWidget {
                 'Your Score: $userScore',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 20), // Add spacing between elements
+              SizedBox(height: 20),
               Text(
-                'Best Score: $updatedBestScore', // Display best score
+                'Best Score: $updatedBestScore',
                 style: TextStyle(
                   fontSize: 20,
-                  fontWeight: FontWeight.bold, // Make it bold
-                  color: Colors.teal, // Change text color to teal
+                  fontWeight: FontWeight.bold,
+                  color: Colors.teal,
                 ),
               ),
-              SizedBox(height: 40), // Add more spacing
+              SizedBox(height: 40),
               ElevatedButton(
                 onPressed: () {
                   Navigator.popUntil(context, ModalRoute.withName('/'));
@@ -62,7 +60,6 @@ class ResultScreen extends StatelessWidget {
     );
   }
 
-  // Function to update the best score in SharedPreferences
   void _updateBestScore(int updatedBestScore) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setInt('bestScore', updatedBestScore);

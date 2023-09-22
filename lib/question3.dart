@@ -66,8 +66,7 @@ class _Question3ScreenState extends State<Question3Screen> {
             }),
             SizedBox(height: 16.0),
             Padding(
-              padding:
-                  const EdgeInsets.only(left: 8.0), // Add left padding here
+              padding: const EdgeInsets.only(left: 8.0),
               child: ElevatedButton(
                 onPressed: () {
                   if (_selectedAnswerIndex != null) {
