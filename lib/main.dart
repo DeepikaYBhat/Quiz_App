@@ -4,14 +4,13 @@ import 'package:quizzz_appp/question2.dart';
 import 'package:quizzz_appp/question3.dart';
 import 'package:quizzz_appp/result_screen.dart';
 import 'package:quizzz_appp/user_answers.dart';
-import 'question.dart'; // Assuming you have a file with your Question class
+import 'question.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // Initialize UserAnswers here
   final UserAnswers userAnswers = UserAnswers();
 
   @override
@@ -23,8 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSwatch(
           primarySwatch: Colors.teal,
         ).copyWith(
-          background: const Color.fromARGB(
-              255, 209, 209, 214), // Set the background color here
+          background: const Color.fromARGB(255, 209, 209, 214),
         ),
         textTheme: TextTheme(
           titleLarge: TextStyle(
@@ -42,7 +40,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: QuizHome(questions: questions), // Pass questions to QuizHome
+      home: QuizHome(questions: questions),
       routes: {
         '/question1': (context) => Question1Screen(
               nextRoute: '/question2',
@@ -83,10 +81,8 @@ class MyApp extends StatelessWidget {
   int bestScore = 0;
   Future<List<int>> calculateScores(
       List<int?> userAnswers, List<Question> questions) async {
-    // Simulate calculating user and best scores
     await Future.delayed(Duration(seconds: 2));
 
-    // Calculate the user's score
     int userScore = 0;
     for (int i = 0; i < userAnswers.length; i++) {
       if (userAnswers[i] != null &&
@@ -95,8 +91,6 @@ class MyApp extends StatelessWidget {
       }
     }
 
-    // Calculate the best score (e.g., maximum possible score)
-    // Assuming all answers are correct
     if (userScore > bestScore) {
       bestScore = userScore;
     }
@@ -121,13 +115,13 @@ class QuizHome extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/quizimg.jpg', // Path to your image file
-              width: 350, // Adjust the width as needed
-              height: 400, // Adjust the height as needed
+              'assets/images/quizimg.jpg',
+              width: 350,
+              height: 400,
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/question1'); // Start the quiz
+                Navigator.pushNamed(context, '/question1');
               },
               child: Text('Start Quiz'),
             ),

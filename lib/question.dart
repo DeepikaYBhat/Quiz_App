@@ -33,5 +33,4 @@ List<Question> questions = [
   ),
 ];
 
-// Initialize UserAnswers here
 final UserAnswers userAnswers = UserAnswers();
